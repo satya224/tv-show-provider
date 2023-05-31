@@ -1,10 +1,11 @@
 .TvShowListItem {
     cursor: pointer;
     position: relative;
+    transition: .2s ease-in-out;
 }
 
 .TvShowListItem:hover {
-    background-color: black;
+    transform: scale(1.1)
 }
 
 .title {
