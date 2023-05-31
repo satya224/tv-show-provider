@@ -1,4 +1,4 @@
-import React, {FC, KeyboardEvent, SyntheticEvent} from 'react';
+import React, {FC} from 'react';
 import styles from './SearchBar.module.css';
 import {Search} from "react-bootstrap-icons";
 
@@ -8,7 +8,7 @@ interface SearchBarProps {
 
 const SearchBar: FC<SearchBarProps> = (props) => {
     const submit = (e: any) => {
-        if(e.key === "Enter" && e.target.value.trim() !== "")
+        if (e.key === "Enter" && e.target.value.trim() !== "")
             props.onSubmit(e.target.value)
     }
 
