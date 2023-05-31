@@ -1,4 +1,6 @@
-export let INITIAL_TV_SHOW = {
+import {TVShowModel} from "./TVShowModel";
+
+export let INITIAL_TV_SHOW : TVShowModel = {
     "backdrop_path": "/t2rAdgjSh0WYbXzdOB5zTDqzdCI.jpg",
     "first_air_date": "2022-11-02",
     "genre_ids": [
