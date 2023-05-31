@@ -57,7 +57,7 @@ function App() {
             <div className={styles.header}>
                 <div className={"row"}>
                     <div className={"col-4"}>
-                        <Logo img={logoImg} title={"WatoWatch"} subtitle={"Find a show you may like"}/>
+                        <Logo img={logoImg} title={"TV Show"} subtitle={"Find a show you may like"}/>
                     </div>
                     <div className={"col-md-12 col-lg-4"}>
                         <SearchBar onSubmit={fetchByTitle}/>

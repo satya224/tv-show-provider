@@ -5,6 +5,7 @@
     position: absolute;
     margin-left: 15px;
     margin-top: 7px;
+    cursor: pointer;
 }
 
 .input {
