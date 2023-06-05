@@ -9,11 +9,12 @@ import {TVShowModel} from "./models/TVShowModel";
 import {INITIAL_TV_SHOW} from "./models/initial-tv-show";
 import TvShowList from "./components/TVShowList/TVShowList";
 import SearchBar from "./components/SearchBar/SearchBar";
+import SearchList from "./components/SearchList/SearchList";
 
 function App() {
     const [currentTVShow, setCurrentTVShow] = useState<TVShowModel>(INITIAL_TV_SHOW);
     const [recommendationList, setRecommendationList] = useState<TVShowModel[]>([INITIAL_TV_SHOW]);
-
+    const [searchList, setSearchList] = useState<TVShowModel[]>([])
     const fetchPopularTVShowList = async () => {
         let popularTVShowList: TVShowModel[] = await TVShowAPI.fetchPopulars();
         popularTVShowList = popularTVShowList.filter((tvShow) => tvShow.backdrop_path
@@ -34,6 +35,14 @@ function App() {
             != null)
         if (searchResponse.length > 0)
             setCurrentTVShow(searchResponse[0]);
+        setSearchList([]);
+    }
+
+    const fetchList = async (title: string) => {
+        let searchResponse: TVShowModel[] = await TVShowAPI.fetchByTitle(title);
+        searchResponse = searchResponse.filter((tvShow) => tvShow.backdrop_path
+            != null)
+        setSearchList(searchResponse);
     }
     useEffect(() => {
         fetchPopularTVShowList().then()
@@ -60,7 +69,9 @@ function App() {
                         <Logo img={logoImg} title={"TV Show"} subtitle={"Find a show you may like"}/>
                     </div>
                     <div className={"col-md-12 col-lg-4"}>
-                        <SearchBar onSubmit={fetchByTitle}/>
+                        <SearchBar onSubmit={fetchByTitle} onSearch={fetchList}/>
+                        {searchList.length > 0 ? <SearchList tvShows={searchList} selectSearch={fetchByTitle}/> : null}
+
                     </div>
                 </div>
             </div>

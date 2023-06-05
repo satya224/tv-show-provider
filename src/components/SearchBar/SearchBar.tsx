@@ -4,6 +4,7 @@ import {Search} from "react-bootstrap-icons";
 
 interface SearchBarProps {
     onSubmit: (value: string) => {}
+    onSearch: (value: string) => {}
 }
 
 const SearchBar: FC<SearchBarProps> = (props) => {
@@ -12,6 +13,9 @@ const SearchBar: FC<SearchBarProps> = (props) => {
         if (e.key === "Enter" && e.target.value.trim() !== "") {
             props.onSubmit(e.target.value)
             setSearchText("")
+        }
+        if (e.target.value.trim() !== "") {
+            props.onSearch(e.target.value)
         }
     }
 
