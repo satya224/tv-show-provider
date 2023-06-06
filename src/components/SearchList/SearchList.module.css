@@ -14,6 +14,9 @@
     padding-bottom: 18px;
     overflow-x: scroll;
 }
+.SearchList::-webkit-scrollbar {
+    display: none;
+}
 
 .searchItem {
     cursor: pointer;

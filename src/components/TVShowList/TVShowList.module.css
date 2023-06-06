@@ -11,6 +11,10 @@
     overflow: scroll;
 }
 
+.list::-webkit-scrollbar {
+    display: none;
+}
+
 .list {
     display: flex;
     width: 98vw;
